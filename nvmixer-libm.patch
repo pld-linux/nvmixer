@@ -1,0 +1,35 @@
+--- nvmixer/commonlib/Makefile.orig	2004-11-11 18:43:56.039716416 +0100
++++ nvmixer/commonlib/Makefile	2004-11-11 18:44:16.113664712 +0100
+@@ -11,12 +11,6 @@
+ 
+ CFLAGS = -g -O2 -Wall -I../.. -I../../main -I.
+ 
+-ifeq (x86_64,$(findstring x86_64,$(shell $(CC) -dumpmachine)))
+-LIBS = --start-group -L/usr/lib64 -lm --end-group
+-else
+-LIBS = --start-group -L/usr/lib -lm --end-group
+-endif
+-
+ OBJS = \
+      main.o \
+      $(NULL)
+@@ -29,7 +23,7 @@
+ 	$(CC) $(CFLAGS) -M *.c > .depend
+ 
+ $(TARGET): $(OBJS)
+-	$(LD) -r $^ -o $@ $(LIBS)
++	$(LD) -r $^ -o $@
+ 
+ clean:
+ 	rm -f .depend core *~ *.o $(TARGET)
+--- nvmixer/MixerRegistry/Makefile.orig	2004-11-11 18:46:31.141137416 +0100
++++ nvmixer/MixerRegistry/Makefile	2004-11-11 18:46:38.617000912 +0100
+@@ -11,7 +11,7 @@
+ 
+ INCPATH = -I../../main -I.
+ CFLAGS  = -g -Wall $(INCPATH)
+-LIBS    = -L../commonlib -lcommonlib
++LIBS    = -L../commonlib -lcommonlib -lm
+ 
+ OBJS = \
+      nvmixer-registry.o \
