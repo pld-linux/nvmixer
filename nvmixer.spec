@@ -6,7 +6,7 @@ Version:	0290
 Release:	1
 License:	nVidia
 Group:		Applications/Sound
-Source0:	ftp://download.nvidia.com/linux/nforce/%{name}/%{name}.tgz
+Source0:	ftp://download.nvidia.com/linux/nforce/nvmixer/%{name}.tgz
 # Source0-md5:	38ac39d298b2dbdc46c660af77e6fe47
 Patch0:		%{name}-libm.patch
 BuildRequires:	qt-devel
@@ -54,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE ReadMe.nvmix-reg
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
-%{_sysconfdir}/*
+%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
