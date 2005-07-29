@@ -1,6 +1,19 @@
---- nvmixer/commonlib/Makefile.orig	2004-11-11 18:43:56.039716416 +0100
-+++ nvmixer/commonlib/Makefile	2004-11-11 18:44:16.113664712 +0100
-@@ -11,12 +11,6 @@
+diff -ur nvmixer/MixerRegistry/Makefile nvmixer.new/MixerRegistry/Makefile
+--- nvmixer/MixerRegistry/Makefile	2005-03-05 04:06:28.000000000 +0000
++++ nvmixer.new/MixerRegistry/Makefile	2005-07-29 16:04:58.629231216 +0000
+@@ -8,7 +8,7 @@
+ 
+ INCPATH = -I../../main -I.
+ CFLAGS  = -g -Wall $(INCPATH)
+-LIBS    = -L../commonlib -lcommonlib
++LIBS    = -L../commonlib -lcommonlib -lm
+ 
+ OBJS = \
+      nvmixer-registry.o \
+diff -ur nvmixer/commonlib/Makefile nvmixer.new/commonlib/Makefile
+--- nvmixer/commonlib/Makefile	2005-03-05 04:06:28.000000000 +0000
++++ nvmixer.new/commonlib/Makefile	2005-07-29 16:04:33.737015408 +0000
+@@ -10,12 +10,6 @@
  
  CFLAGS = -g -O2 -Wall -I../.. -I../../main -I.
  
@@ -13,23 +26,12 @@
  OBJS = \
       main.o \
       $(NULL)
-@@ -29,7 +23,7 @@
+@@ -28,7 +22,7 @@
  	$(CC) $(CFLAGS) -M *.c > .depend
  
- $(TARGET): $(OBJS)
+ $(LIBMAIN): $(OBJS)
 -	$(LD) -r $^ -o $@ $(LIBS)
 +	$(LD) -r $^ -o $@
  
- clean:
- 	rm -f .depend core *~ *.o $(TARGET)
---- nvmixer/MixerRegistry/Makefile.orig	2004-11-11 18:46:31.141137416 +0100
-+++ nvmixer/MixerRegistry/Makefile	2004-11-11 18:46:38.617000912 +0100
-@@ -11,7 +11,7 @@
- 
- INCPATH = -I../../main -I.
- CFLAGS  = -g -Wall $(INCPATH)
--LIBS    = -L../commonlib -lcommonlib
-+LIBS    = -L../commonlib -lcommonlib -lm
- 
- OBJS = \
-      nvmixer-registry.o \
+ $(TARGET): $(LIBMAIN)
+ 	$(AR) r $@  $(LIBMAIN)
