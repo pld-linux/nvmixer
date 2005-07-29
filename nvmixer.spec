@@ -2,12 +2,12 @@ Summary:	nForce mixer utility
 Summary(pl):	Narzêdzie do miksera nForce
 Name:		nvmixer
 # see bottom of README
-Version:	0290
+Version:	0301
 Release:	1
 License:	nVidia
 Group:		Applications/Sound
 Source0:	ftp://download.nvidia.com/linux/nforce/nvmixer/%{name}.tgz
-# Source0-md5:	38ac39d298b2dbdc46c660af77e6fe47
+# Source0-md5:	a0b82e41a7dd01f97ef4b756738d7fd3
 Patch0:		%{name}-libm.patch
 BuildRequires:	qt-devel
 Requires:	kernel-misc(nforce)
