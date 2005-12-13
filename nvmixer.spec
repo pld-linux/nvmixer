@@ -54,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc LICENSE ReadMe.nvmix-reg
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_sbindir}/*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
