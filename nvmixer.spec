@@ -1,5 +1,5 @@
 Summary:	nForce mixer utility
-Summary(pl):	Narzêdzie do miksera nForce
+Summary(pl.UTF-8):   NarzÄ™dzie do miksera nForce
 Name:		nvmixer
 # see bottom of README
 Version:	0301
@@ -18,8 +18,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 nForce mixer utility.
 
-%description -l pl
-Narzêdzie do miksera nForce.
+%description -l pl.UTF-8
+NarzÄ™dzie do miksera nForce.
 
 %prep
 %setup -q -n %{name}
