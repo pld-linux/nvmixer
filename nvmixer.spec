@@ -1,5 +1,5 @@
 Summary:	nForce mixer utility
-Summary(pl.UTF-8):   Narzędzie do miksera nForce
+Summary(pl.UTF-8):	Narzędzie do miksera nForce
 Name:		nvmixer
 # see bottom of README
 Version:	0301
